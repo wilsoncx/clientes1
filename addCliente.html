@@ -1,0 +1,59 @@
+
+
+	<!-- form clientes -->
+	<form role="form">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-12">
+				<div class="form-group">
+					<input type="text" ng-model="cliente.nome" name="nome" class="form-control input-lg" placeholder="Nome" tabindex="1">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<div class="form-group">
+			<input type="email" name="email" ng-model="cliente.email"  class="form-control input-lg" placeholder="E-mail" tabindex="2">
+		</div>
+	</div>
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<div class="form-group">
+					<input type="tel" name="celular" ng-model="cliente.celular"  class="form-control input-lg" placeholder="celular" tabindex="3">
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<div class="form-group">
+					<input type="number" name="empresa_id" ng-model="cliente.empresa_id"  class="form-control input-lg" placeholder="empresa_id" tabindex="4">
+				</div>
+			</div>
+		</div>
+
+<!---modal de mensagem de sucesso para registro-->
+<div class="modal fade bs-example-modal-sm" role="dialog" id="sucessModal" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="alert alert-success"> <span class="glyphicon glyphicon-ok" aria-hidden="true">
+				</span> <strong>  Parabéns você adicionou um novo cliente com sucesso.</strong></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!----modal de mensagem de erro a inserir -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="erroModal">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="alert alert-danger"> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Desculpa aconteceu algo errado verifique os dados.</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<button type="submit"  ng-click="editCliente()"  class="btn btn-primary">Salvar Cliente</button>
+</form>
+	<!-- fim form clientes -->

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Sistemas de envio de SMS</title>
+	<meta name="description" content="">
+	<meta name="author" content="JOSE WILSON ALVES DA SILVA">
+	<meta name="viewport" content="initial-scale=1.0">
+	<link rel="stylesheet"href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<h2 id="tables-contextual-classes">Lista de Clientes </h2>
+	<div class="row">
+		<div class="col-lg-7">
+			<div class="input-group input-group-lg">
+				<input type="search" class="form-control" placeholder="Pesquisar" ng-model="busca">
+				<span class="input-group-btn">
+					<button class="btn btn-primary btn-lg" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar</button>
+				</span>
+			</div><!-- /input-group -->
+		</div>
+	</div><!-- /.row -->
+</br>
+</br>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
+			<col class="col-xs-2">
+			<col class="col-xs-5">
+			<col class="col-xs-2">
+			<col class="col-xs-1">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>Celular</th>
+				<th>Nome</th>
+				<th>E-mail</th>
+				<th>Ação</th>
+			</tr>
+		</thead>
+
+		<tbody >
+			<tr dir-paginate="cliente in clientes| orderBy:'$index'|filter:busca | itemsPerPage:10">
+				<td>  <a href="#/cliente/{{$index}}">{{cliente.celular}}</a></td>
+				<td>{{cliente.nome}}</td>
+				<td>{{cliente.email}}</td>
+				<!---botões editar e excluir -->
+				<td>
+					<a class"btn" type="buttom" class="btn btn-primary" href="#/cliente/{{$index}}">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</a	>
+					<button type="button" class="btn btn-danger">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</button>
+				</td>
+				<!---fim editar e excluir -->
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="col-lg-7">
+<!---paginação -->
+<div class="row">
+	<dir-pagination-controls
+		max-size="5"
+		direction-links="true"
+		boundary-links="true" >
+	</dir-pagination-controls>
+</div>
+</div>
+</br>
+<!---fim da paginação-->
+<div class="col-lg-7">
+	<div class="input-group">
+
+		<button class="btn btn-success btn-lg" type="button" href="#cliente/novo"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo Cliente</button>
+	</div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</html>
