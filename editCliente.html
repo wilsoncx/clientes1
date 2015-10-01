@@ -1,28 +1,30 @@
 
 
 	<!-- form clientes -->
-	<form role="form">
+	<form role="form" ng-controller="editClienteController">
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-12">
 				<div class="form-group">
-					<input type="text" ng-model="cliente.nome" name="nome" class="form-control input-lg" placeholder="Nome" tabindex="1">
+					<input type="text" ng-model="c.nome" name="nome" class="form-control input-lg" placeholder="Nome" tabindex="1">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-			<input type="email" name="email" ng-model="cliente.email"  class="form-control input-lg" placeholder="E-mail" tabindex="2">
+			<input type="email" name="email" ng-model="c.email"  class="form-control input-lg" placeholder="E-mail" tabindex="2">
+			<div class="form-group">
+	</div>
 		</div>
 	</div>
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<input type="tel" name="celular" ng-model="cliente.celular"  class="form-control input-lg" placeholder="celular" tabindex="3">
+					<input type="tel" name="celular" ng-model="c.celular"  class="form-control input-lg" placeholder="celular" tabindex="3">
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<input type="number" name="empresa_id" ng-model="cliente.empresa_id"  class="form-control input-lg" placeholder="empresa_id" tabindex="4">
+					<input type="number" name="empresa_id" ng-model="c.empresa_id"  class="form-control input-lg" placeholder="empresa_id" tabindex="4">
 				</div>
 			</div>
 		</div>

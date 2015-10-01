@@ -12,8 +12,8 @@ app.config(['$routeProvider',function($routeProvider){
 })
 .when('/cliente/novo',{controller:'addclienteController',
   templateUrl:'templates/addCliente.html'})
-  .when('/cliente/:index',{
-  controller:'CtrlEditar',
+  .when('/cliente/:id',{
+  controller:'editClienteController',
   templateUrl:'templates/editCliente.html'
 }).
   when('/grupos',{controller:'grupoController',
@@ -31,7 +31,7 @@ app.controller('mainController',function ($scope) {
 })
 
 
-app.controller('clienteController',function ($scope,$http) {
+.controller('clienteController',function ($scope,$http) {
   $scope.clientes = [];
   $scope.$on('$viewContentLoaded', function(){
     $http.get("api/cliente").then(function(response){
@@ -59,16 +59,28 @@ app.controller('clienteController',function ($scope,$http) {
 .controller('addclienteController',function ($scope,$http){
   ///adicionar o cliente
     $scope.addCliente = function() {
-            $http.post('api/cliente',$scope.cliente)
+            $http.post('api/cliente',$scope.c)
             .success(function(data, status, headers, config){
                $('#sucessModal').modal('show');
-               $scope.cliente="";
+               $scope.c="";
             }).error(function(data) {
                $('#erroModal').modal('show');
             });
         };
 })
 
-.controller('CtrlEditar', function($scope, $routeParams) {
-    $scope.cliente = $scope.clientes[$routeParams.index];
+.controller('editClienteController', function($scope, $routeParams, $http) {
+    $scope.c = $scope.clientes[$routeParams.id];
+    console.log($routeParams.id);
+
+$scope.editCliente = function(id){
+  $http.put('api/cliente/'+$routeParams.id ,$scope.c)
+  .success(function(data, status, headers, config){
+     $('#sucessModal').modal('show');
+     $scope.c="";
+  }).error(function(data) {
+     $('#erroModal').modal('show');
+  });
+};
+
 });
